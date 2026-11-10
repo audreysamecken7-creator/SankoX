@@ -1,0 +1,165 @@
+Cahier des charges
+Projet intégré 2026-2027 – Sujet APP3/26-27
+Technologies numériques intelligentes au service de la prévention et de la gestion des risques d’inondation en Côte d’Ivoire
+Nom de la solution : [à définir]
+Équipe : 5 membres
+Version : 1.0 – octobre 2026
+1. Présentation du projet
+1.1 Contexte
+Chaque saison des pluies, la Côte d’Ivoire, et en particulier le District d’Abidjan, subit des inondations qui causent des pertes humaines, des dégâts matériels, des perturbations de la circulation et des risques sanitaires. Plusieurs facteurs aggravent la situation : urbanisation rapide, imperméabilisation des sols, habitat dans les zones basses et surtout caniveaux obstrués par les ordures, qui empêchent l’écoulement de l’eau.
+Aujourd’hui, la surveillance et l’alerte reposent largement sur des constats manuels et tardifs. Il manque un outil centralisé qui mesure, analyse, alerte, guide et coordonne.
+1.2 Problématique
+Comment les technologies numériques intelligentes (IoT, analyse de données, cartographie, alertes automatiques) peuvent-elles améliorer la prévention, l’alerte et la gestion des inondations en Côte d’Ivoire ?
+1.3 Objectif général
+Concevoir et réaliser une plateforme unique qui regroupe la surveillance des zones à risque, l’analyse intelligente des données, l’alerte des acteurs et de la population, la cartographie, la navigation sécurisée et la coordination des secours.
+1.4 Objectifs spécifiques
+•	Surveiller en temps réel la pluie, le niveau d’eau et l’obstruction des caniveaux grâce à des capteurs.
+•	Évaluer automatiquement le niveau de risque par zone (vert, orange, rouge).
+•	Alerter rapidement les acteurs concernés et la population par SMS et notification.
+•	Visualiser les risques sur une carte interactive.
+•	Proposer des itinéraires qui évitent les zones inondables.
+•	Coordonner les interventions des secours et du curage.
+•	Sensibiliser la population avant, pendant et après une inondation.
+2. Périmètre
+2.1 Inclus dans le projet
+•	Une plateforme web (tableau de bord et administration) et une interface mobile ou web adaptée à la population.
+•	Un prototype de capteurs IoT (pluie, niveau d’eau, niveau d’ordures dans les caniveaux) ou, à défaut, une simulation de ces données.
+•	Un moteur d’analyse et d’alerte, la cartographie, le calcul d’itinéraires et la gestion des interventions.
+2.2 Hors périmètre (à valider avec l’encadrant)
+•	Déploiement à l’échelle nationale : le projet se limite à une zone pilote (par exemple quelques quartiers d’Abidjan).
+•	Fabrication industrielle des capteurs.
+•	Prévision météorologique propre : on utilise des données existantes.
+3. Acteurs et rôles utilisateurs
+Acteur	Rôle dans le système	Droits principaux
+Administrateur	Gère la plateforme	Utilisateurs, capteurs, seuils, configuration
+Acteurs autorisés (protection civile, mairie, voirie)	Surveillent, interviennent, coordonnent	Tableau de bord, alertes, interventions, carte complète
+Population	Consulte et reçoit les alertes	Carte publique, itinéraires, consignes, signalements, inscription aux alertes de son quartier
+4. Besoins fonctionnels
+Les modules suivants sont numérotés M1 à M9 et servent de base à la répartition des tâches.
+M1 – Surveillance IoT
+•	Réception en temps réel des mesures de pluie et de niveau d’eau.
+•	Mesure du taux d’obstruction des caniveaux par les capteurs d’ordures.
+•	Gestion des capteurs : ajout, localisation, état (actif, hors service), batterie.
+•	Historique des mesures par capteur.
+M2 – Analyse intelligente
+•	Comparaison automatique des mesures avec les seuils de risque.
+•	Détection des évolutions inquiétantes (montée rapide de l’eau, obstruction croissante).
+•	Calcul d’un niveau de risque par zone : vert, orange, rouge.
+•	Prise en compte de l’obstruction des caniveaux dans le niveau de risque.
+•	Ajustement des seuils à partir de l’historique.
+M3 – Alertes automatiques
+•	Déclenchement d’une alerte lorsqu’un seuil est atteint.
+•	Envoi par SMS.
+•	Alerte spécifique « caniveau obstrué » envoyée aux services cibles.
+•	Historique des alertes envoyées.
+M4 – Cartographie des risques
+•	Carte interactive des zones surveillées.
+•	Affichage du niveau de risque par couleur.
+•	État des capteurs.
+•	Affichage des caniveaux obstrués et des signalements.
+•	Filtres par zone, niveau de risque et type d’information.
+M5 – Itinéraires avec déviation
+•	Calcul d’un itinéraire entre un départ et une destination.
+•	Détection d’une zone à risque sur le trajet.
+•	Proposition automatique d’un itinéraire alternatif.
+•	Affichage du temps de trajet supplémentaire.
+•	Itinéraires adaptés aux équipes de secours.
+M6 – Tableau de bord centralisé
+•	Vue d’ensemble : nombre de zones par niveau de risque, alertes actives, capteurs en panne.
+•	Indicateurs et graphiques (évolution du niveau d’eau, de la pluie, de l’obstruction).
+•	Liste des alertes et des interventions en cours.
+•	Accès selon le rôle de l’utilisateur.
+M7 – Coordination des secours
+•	Création d’une intervention (lieu, type, priorité).
+•	Assignation à une équipe.
+•	Suivi par statut : en attente, en cours, terminée.
+•	Commentaires et mises à jour partagés entre les acteurs.
+•	Création automatique d’une intervention de curage en cas d’obstruction.
+•	Historique consultable après l’événement.
+M8 – Sensibilisation numérique
+•	Consignes de prévention et de sécurité adaptées au niveau de risque.
+•	Diffusion par SMS, notification et sur la plateforme.
+•	Conseils avant, pendant et après une inondation.
+•	Numéros d’urgence.
+M9 – Gestion des utilisateurs et des accès
+•	Création de comptes et authentification sécurisée.
+•	Trois rôles : administrateur, acteurs autorisés, population.
+•	Droits d’accès différents selon le rôle.
+•	Inscription de la population aux alertes de son quartier.
+5. Besoins non fonctionnels
+Critère	Exigence
+Temps réel	Une mesure reçue doit apparaître sur le tableau de bord en moins de 30 secondes (valeur cible à valider)
+Fiabilité	Disponibilité visée de 99 % pendant la saison des pluies ; détection des capteurs en panne
+Sécurité	Authentification sécurisée, mots de passe hachés, HTTPS, contrôle d’accès par rôle, protection des données personnelles (numéros de téléphone)
+Performance	Carte et tableau de bord fluides, y compris avec une connexion mobile moyenne
+Ergonomie	Interface en français, simple pour la population, utilisable sur smartphone
+Évolutivité	Ajout facile de nouveaux capteurs et de nouvelles zones
+Robustesse réseau	Les capteurs conservent les mesures en cas de coupure et les renvoient ensuite
+Maintenabilité	Code documenté, architecture modulaire
+6. Architecture technique proposée
+Les choix ci-dessous sont des propositions à confirmer par l’équipe.
+Couche	Proposition
+Capteurs	Microcontrôleur ESP32 ou Arduino ; capteur de pluie, capteur ultrasonique pour le niveau d’eau et le niveau d’ordures ; transmission via GSM/LoRa ou Wi-Fi ; simulation logicielle si le matériel n’est pas disponible
+Communication	MQTT ou API REST pour la remontée des mesures
+Backend	API (par exemple Django ou Node.js) avec moteur de règles pour l’analyse et les alertes
+Base de données	PostgreSQL, avec extension géographique PostGIS si possible
+Frontend	Application web responsive (React ou équivalent) et carte (Leaflet / OpenStreetMap)
+Itinéraires	Moteur de routage OpenStreetMap (OSRM, OpenRouteService) avec évitement des zones à risque
+Alertes	Passerelle SMS (service d’un opérateur ou agrégateur local) et notifications
+Analyse	Règles à seuils au départ ; évolution possible vers un modèle de prédiction à partir de l’historique
+7. Livrables attendus
+•	Document de réflexion : contexte, problèmes, solutions existantes, processus de conception.
+•	Le présent cahier des charges.
+•	Conception : diagrammes de cas d’utilisation, de classes, de séquence, modèle de données, maquettes.
+•	Prototype fonctionnel de la plateforme et des capteurs.
+•	Jeu de données de démonstration (réelles ou simulées).
+•	Tests et rapport de tests.
+•	Rapport final et manuel utilisateur.
+•	Présentation et démonstration devant le jury.
+8. Répartition des tâches entre les 5 membres
+Chaque membre choisit un lot principal. Les lots sont équilibrés en charge de travail, et chacun a un lot secondaire pour renforcer un collègue. Les noms sont à remplir au moment du choix.
+Lot	Modules	Tâches principales	Membre responsable
+Lot A – Capteurs et collecte	M1	Choix du matériel, schéma de montage, programmation des capteurs (pluie, niveau d’eau, ordures), transmission des mesures, API de réception, gestion et historique des capteurs, simulateur de données	__Souleymana____
+Lot B – Analyse et alertes	M2, M3	Définition des seuils, calcul du niveau de risque (vert, orange, rouge), détection des tendances, intégration de l’obstruction des caniveaux, moteur d’alertes, passerelle SMS, historique des alertes	_ _N’zi konan____
+Lot C – Cartographie et itinéraires	M4, M5	Carte interactive, couches de risque et de capteurs, filtres, signalements, calcul d’itinéraires, détection de zone à risque, déviation automatique, itinéraires pour les secours	___Samecken Audrey___
+Lot D – Tableau de bord et secours	M6, M7	Tableau de bord et graphiques, gestion des interventions, assignation aux équipes, suivi par statut, commentaires, création automatique d’intervention de curage, historique	__Okou Konan____
+Lot E – Utilisateurs, sensibilisation et pilotage	M8, M9	Comptes, authentification, rôles et droits, inscription aux alertes par quartier, contenus de sensibilisation (avant, pendant, après), diffusion SMS et notifications, base de données commune, déploiement	___Konaté Idrissa___
+8.1 Tâches transversales (partagées)
+Tâche	Responsable principal suggéré	Appui
+Coordination du projet, planning, suivi d’avancement	Au choix de l’équipe	Tous
+Document de réflexion et rapport final	Lot E	Tous (chacun rédige son lot)
+Conception UML et modèle de données	Lot E	Chaque lot décrit son module
+Maquettes et charte graphique	Lot C	Lot D
+Intégration et tests d’ensemble	Lot D	Tous
+Collecte de données réelles (zones inondables d’Abidjan, numéros d’urgence, partenaires)	Lot B	Lot E
+Présentation et démonstration	Tous	Tous
+8.2 Règles de travail
+•	Un dépôt Git commun, avec une branche par lot.
+•	Un point d’équipe hebdomadaire.
+•	Un contrat d’interface (format des API et des données) défini dès le début pour que les lots puissent avancer en parallèle.
+•	Un lot ne dépend des autres que par ce contrat : le lot A fournit des mesures, le lot B les analyse, les lots C et D les affichent.
+9. Planning prévisionnel
+Les dates sont à adapter au calendrier officiel de l’ESATIC.
+Phase	Contenu	Durée indicative
+1. Cadrage	Analyse du sujet, document de réflexion, choix du nom, validation du cahier des charges	2 semaines
+2. Conception	UML, modèle de données, maquettes, contrat d’interface, choix techniques	3 semaines
+3. Développement	Réalisation des lots A à E en parallèle	6 à 8 semaines
+4. Intégration et tests	Assemblage, tests avec données simulées puis réelles, corrections	3 semaines
+5. Finalisation	Rapport, manuel, présentation, démonstration	2 semaines
+10. Risques et solutions
+Risque	Impact	Réponse prévue
+Matériel de capteurs indisponible ou coûteux	Pas de données réelles	Simulateur de capteurs et prototype réduit
+Coût et accès à la passerelle SMS	Alertes non envoyées	Offre d’essai, notification sur la plateforme en secours
+Données géographiques insuffisantes	Cartographie incomplète	OpenStreetMap, zone pilote limitée, relevés de terrain
+Retard d’un lot	Blocage de l’intégration	Contrat d’interface, données factices, entraide entre lots
+Connexion instable des capteurs	Perte de mesures	Stockage local sur le capteur et renvoi différé
+Fausses alertes	Perte de confiance	Seuils ajustables, validation par l’historique
+11. Critères de validation
+•	Une mesure simulée dépasse un seuil : la zone passe en orange ou rouge, une alerte part et apparaît sur le tableau de bord.
+•	Un caniveau signalé obstrué déclenche une alerte spécifique et une intervention de curage automatique.
+•	Un itinéraire qui traverse une zone rouge est dévié avec affichage du temps supplémentaire.
+•	Chaque rôle accède uniquement à ses fonctions.
+•	Un habitant inscrit reçoit les consignes adaptées à son quartier.
+12. Choix du nom de la solution
+Le nom reste à définir par l’équipe. Critères suggérés : court, facile à retenir, évocateur de l’eau, de la protection ou de l’alerte, et disponible comme nom de domaine.
+
